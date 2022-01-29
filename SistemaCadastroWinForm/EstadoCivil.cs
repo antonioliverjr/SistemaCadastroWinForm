@@ -11,6 +11,7 @@ namespace SistemaCadastroWinForm
         Casado,
         Solteiro,
         Viuvo,
-        Separado
+        Separado,
+        Enrolado
     }
 }

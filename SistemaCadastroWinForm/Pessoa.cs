@@ -15,5 +15,19 @@ namespace SistemaCadastroWinForm
         public bool CasaPropria { get; set; }
         public bool Veiculo { get; set; }
         public char Sexo { get; set; }
+
+        private int idade {
+            get
+            {
+                var ano = DateTime.Now;
+                var data = Convert.ToDateTime(DataNascimento);
+                return ano.Year - data.Year;
+            }
+        }
+
+        public string print()
+        {
+            return $"{Nome} - {EstadoCivil} - {idade} Idade";
+        }
     }
 }
