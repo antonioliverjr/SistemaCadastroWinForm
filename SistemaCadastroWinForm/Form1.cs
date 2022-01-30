@@ -37,6 +37,23 @@ namespace SistemaCadastroWinForm
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Icon = new Icon(@"C:\Workspace\SistemaCadastroWinForm\SistemaCadastroWinForm\htc.ico");
+
+            FormLogin login = new FormLogin();
+
+            while (CadastroUsuario.UsuarioLogado == null)
+            {
+                Visible = false;
+                login.ShowDialog();
+
+                if (FormLogin.Cancelar)
+                {
+                    this.Close();
+                    Application.ExitThread();
+                    return;
+                }
+            }
+
+            Visible = true;
         }
 
         private void btn_salvar_Click(object sender, EventArgs e)
