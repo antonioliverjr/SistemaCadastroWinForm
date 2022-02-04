@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -183,6 +184,24 @@ namespace SistemaCadastroWinForm
                 }
 
             }
+        }
+
+        private void sairMenuForm_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void novoMenuForm_Click(object sender, EventArgs e)
+        {
+            new Thread(() => Application.Run(new Form1())).Start();
+        }
+
+        private void infoMenuForm_Click(object sender, EventArgs e)
+        {
+            Hide();
+            FormSobre sobre = new FormSobre();
+            sobre.ShowDialog();
+            Show();
         }
     }
 }
